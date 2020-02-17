@@ -1,0 +1,10 @@
+.board {
+    display: grid;
+    grid-auto-rows: auto;
+    grid-template-columns: repeat(4, 25vw);
+}
+
+img {
+    width: 300px;
+    height: 300px;
+}
