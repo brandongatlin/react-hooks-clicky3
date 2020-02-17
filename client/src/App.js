@@ -24,16 +24,26 @@ const App = ()=> {
     const id = e.target.id;
 
     if(clicked.includes(id)) {
-      setHiScore(score);
+      if(score > hiScore){
+        setHiScore(score);
+      }
       setScore(0);
+      setClicked([]);
     } else {
       setClicked([...clicked, id])
       setScore(score += 1);
     }
+
+    if(score === 12){
+      alert('win');
+      setScore(0);
+      setClicked([]);
+    } 
   }
 
   return (
     <div className="App">
+      <h1>Solve the riddle of the sphinx...</h1>
       <ScoreBoard score={score} hiScore={hiScore}/>
       <div className="board">
         {randomizer(glyphs).map((pic)=> {
