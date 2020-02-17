@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Card = (props) => (
-    <img alt={props.name} id={props.id} src={props.image} onClick={props.click}/>
+const Card = ({name, id, image, click}) => (
+    <img alt={name} id={id} src={image} onClick={click}/>
 )
 export default Card;

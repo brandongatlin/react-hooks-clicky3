@@ -5,6 +5,7 @@ import Card from './components/Card';
 
 const App = ()=> {
   let [score, setScore] = useState(0);
+  const [hiScore, setHiScore] = useState(0);
   const [clicked, setClicked] = useState([]);
 
   const randomizer = (data) => {
@@ -23,6 +24,7 @@ const App = ()=> {
     const id = e.target.id;
 
     if(clicked.includes(id)) {
+      setHiScore(score);
       setScore(0);
     } else {
       setClicked([...clicked, id])
@@ -32,7 +34,7 @@ const App = ()=> {
 
   return (
     <div className="App">
-      <ScoreBoard score={score}/>
+      <ScoreBoard score={score} hiScore={hiScore}/>
       <div className="board">
         {randomizer(glyphs).map((pic)=> {
         return (
